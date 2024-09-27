@@ -1,1 +1,78 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: poppin-extrabold;
+    src: url("./assets/fonts/Poppins-ExtraBold.ttf");
+  }
+  
+  @font-face {
+    font-family: poppin-semibold;
+    src: url("./assets/fonts/Poppins-SemiBold.ttf");
+  }
+  
+  @font-face {
+    font-family: poppin-bold;
+    src: url("./assets/fonts/Poppins-Bold.ttf");
+  }
+  
+  @font-face {
+    font-family: poppin-thin;
+    src: url("./assets/fonts/Poppins-Thin.ttf");
+  }
+  
+  @font-face {
+    font-family: poppin-black;
+    src: url("./assets/fonts/Poppins-Black.ttf");
+  }
+  
+  @font-face {
+    font-family: poppin-light;
+    src: url("./assets/fonts/Poppins-Light.ttf");
+  }
+  
+  @font-face {
+    font-family: poppin-regular;
+    src: url("./assets/fonts/Poppins-Regular.ttf");
+  }
+  
+  @font-face {
+    font-family: poppin-medium;
+    src: url("./assets/fonts/Poppins-Medium.ttf");
+  }
+  
+  * {
+    font-family: poppin-medium;
+  }
+  
+  .poppin-extrabold {
+    font-family: poppin-extrabold;
+  }
+  
+  .poppin-semibold {
+    font-family: poppin-semibold;
+  }
+  
+  .poppin-bold {
+    font-family: poppin-bold;
+  }
+  
+  .poppin-thin {
+    font-family: poppin-thin;
+  }
+  
+  .poppin-black {
+    font-family: poppin-black;
+  }
+  
+  .poppin-light {
+    font-family: poppin-light;
+  }
+  
+  .poppin-medium {
+    font-family: poppin-medium;
+  }
+  
