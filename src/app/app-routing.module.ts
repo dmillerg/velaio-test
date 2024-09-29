@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ROUTES } from './core/constant/routes';
 
 const routes: Routes = [
-  { path: '', redirectTo: ROUTES.HOME, pathMatch: 'full' },
+  { path: '', redirectTo: ROUTES.TASK, pathMatch: 'full' },
   {
     path: ROUTES.HOME, loadChildren: () =>
       import('./modules/dashboard/dashboard.module').then((m) => m.DashboardModule),

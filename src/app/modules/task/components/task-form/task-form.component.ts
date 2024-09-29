@@ -51,7 +51,7 @@ export class TaskFormComponent extends FormValidation implements OnChanges {
       formData.append('expirationDate', data.expirationDate!)
       formData.append('people', JSON.stringify(data.people!))
       formData.append('completed', 'false')
-      this.store.dispatch(addTask({task: data as any}))
+      this.store.dispatch(addTask({ task: data as any }))
     } else this.form.markAllAsTouched()
   }
 
@@ -59,4 +59,8 @@ export class TaskFormComponent extends FormValidation implements OnChanges {
     this.store.dispatch(addSidebarView({ sidebarView: { type: 'new people' } }))
   }
 
+  deletePeople(index: number) {
+    this.people.splice(index, 1);
+    this.peopleArray.controls.splice(index, 1)
+  }
 }
