@@ -4,4 +4,5 @@ export interface PEOPLE {
     full_name: string;
     age: number;
     skill: Skill[];
+    color?: string;
 }

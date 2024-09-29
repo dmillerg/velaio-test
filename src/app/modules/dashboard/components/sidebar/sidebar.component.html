@@ -1,12 +1,12 @@
-<div class="w-16 py-5 border h-full flex flex-col justify-between items-center bg-white">
+<div class="w-16 py-5 border h-full flex-col justify-between items-center bg-white hidden md:flex lg:flex">
     <div class="flex flex-col justify-center gap-2 w-full items-center">
-        <img src="favicon.ico" alt="" class="mb-8 w-8 ">
+        <img src="assets/img/task-assignment.png" alt="" class="mb-8 w-8 drop-shadow-md">
         <div class="flex flex-col gap-8 justify-center items-center w-full">
             <button class="w-full relative" [ngClass]="{'text-primary':item.name===active}" *ngFor="let item of menu">
                 <div *ngIf="item.name===active" class="h-full w-[4px] bg-primary absolute rounded-e-md top-0 left-0">
                 </div>
-                <span [ngClass]="{'bg-primary/10': item.name===active}" class="hover:bg-primary/10 rounded-full w-14 h-14">
-                    <i [class]="item.icon"></i>
+                <span class="hover:bg-primary/10 rounded-full w-14 h-14">
+                    <i [class]="item.icon" class="drop-shadow-md"></i>
                 </span>
             </button>
         </div>

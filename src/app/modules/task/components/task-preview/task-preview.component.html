@@ -1,0 +1,22 @@
+<div *ngIf="(task$|async)[0]" class="flex flex-col gap-4 px-16 py-6 text-gray-800">
+    <p class="font-semibold text-sm"><i
+            [ngClass]="{'text-red-500':!(task$|async)[0]?.completed, 'text-green-500':(task$|async)[0]?.completed}"
+            class="bi bi-circle-fill text-xs"></i> {{(task$|async)[0]?.completed?'Completed':'Pending'}} <span
+            class="ml-4 text-gray-400 poppin-light">Requested
+            {{(task$|async)[0]?.expirationDate|date:'MMM dd'}}</span>
+    </p>
+
+    <p class="text-primary text-sm"># {{(task$|async)[0]?.id}}</p>
+
+    <h2 class="text-2xl">{{(task$|async)[0]?.title}}</h2>
+
+    <p class="mt-8"><i class="bi bi-people-fill text-primary"></i> Assigned people:</p>
+    <ul class="list-inside">
+        <li *ngFor="let item of (task$|async)[0].people" class="text-sm mt-2 border-b pb-4">
+            <span>{{item.full_name}}</span>
+            <div class="flex gap-2 items-center text-gray-400 poppin-light">
+                <span class="text-sm" *ngFor="let skill of item.skill;let l = last;let f= first">{{f?'Skills: ':''}}{{skill.name}}{{l?'':','}}</span>
+            </div>
+        </li>
+    </ul>
+</div>

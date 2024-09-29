@@ -1,0 +1,4 @@
+<div class="flex gap-1">
+    <span *ngFor="let item of people; let i = index" [class]="item.color"
+        class="rounded-full flex text-sm justify-center items-center w-8 h-8 text-white poppin-light">{{acronym(item)}}</span>
+</div>
