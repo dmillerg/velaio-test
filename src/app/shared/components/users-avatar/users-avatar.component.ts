@@ -16,17 +16,20 @@ export class UsersAvatarComponent {
     {
       full_name: 'DANIEL MILLER GONZALEZ',
       age: 28,
-      skill: [{ name: 'Angular' }, { name: 'React' }, { name: 'Nestjs' }, { name: 'Python' }]
+      skill: [{ name: 'Angular' }, { name: 'React' }, { name: 'Nestjs' }, { name: 'Python' }],
+      color: this.color()
     },
     {
       full_name: 'DANIEL MILLER GONZALEZ',
       age: 28,
-      skill: [{ name: 'Angular' }, { name: 'React' }, { name: 'Nestjs' }, { name: 'Python' }]
+      skill: [{ name: 'Angular' }, { name: 'React' }, { name: 'Nestjs' }, { name: 'Python' }],
+      color: this.color()
     },
     {
       full_name: 'DANIEL MILLER GONZALEZ',
       age: 28,
-      skill: [{ name: 'Angular' }, { name: 'React' }, { name: 'Nestjs' }, { name: 'Python' }]
+      skill: [{ name: 'Angular' }, { name: 'React' }, { name: 'Nestjs' }, { name: 'Python' }],
+      color: this.color()
     },
   ];
 
@@ -35,7 +38,7 @@ export class UsersAvatarComponent {
     return `${bypart[0][0]}${bypart.length > 1 ? bypart[1][0] : ''}`
   }
 
-  color() {
+  private color() {
     return COLOR[Math.floor(Math.random() * 3) + 1];
   }
 }

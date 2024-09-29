@@ -9,6 +9,8 @@ import { TaskItemListComponent } from './components/task-item-list/task-item-lis
 import { CardContainerComponent } from 'src/app/shared/components/card-container/card-container.component';
 import { TasksService } from './services/tasks.service';
 import { TaskPreviewComponent } from './components/task-preview/task-preview.component';
+import { TaskFormComponent } from './components/task-form/task-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,13 +20,15 @@ import { TaskPreviewComponent } from './components/task-preview/task-preview.com
     TaskListComponent,
     TaskItemListComponent,
     TaskPreviewComponent,
+    TaskFormComponent,
   ],
   imports: [
     CommonModule,
     TaskRoutingModule,
-    CardContainerComponent
+    CardContainerComponent,
+    ReactiveFormsModule
   ],
-  exports: [TaskPreviewComponent],
+  exports: [TaskPreviewComponent, TaskFormComponent],
   providers: [TasksService]
 })
 export class TaskModule { }

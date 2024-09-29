@@ -1,6 +1,6 @@
 <div class="w-full h-full fixed text-gray-400">
     <div class="flex justify-between h-full">
-        <app-sidebar  />
+        <app-sidebar />
 
         <div class="flex-1 flex flex-col overflow-y-auto bg-gray-100/30">
             <app-navbar class="sticky top-0 bg-white border-b"></app-navbar>
@@ -12,7 +12,8 @@
             class="w-full max-w-md h-full border top-0 bg-white absolute md:relative lg:relative right-0 duration-300 md:translate-x-0 lg:translate-x-0">
             <button class="absolute top-5 right-8 md:hidden lg:hidden" (click)="open=false"><i
                     class="bi bi-x-lg"></i></button>
-            <app-task-preview></app-task-preview>
+            <!-- <app-task-preview></app-task-preview> -->
+            <app-task-form/>
         </div>
     </div>
 </div>

@@ -1,0 +1,45 @@
+<form class="px-8 pt-6 pb-8" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h1 class="text-gray-800 font-bold">New task</h1>
+    <p class="text-sm poppin-light mb-6">Please fill out all fields and review them before submitting the information.
+    </p>
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+            Title
+        </label>
+        <input formControlName="title"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="title" type="text" placeholder="Task number 1">
+        <small [hidden]="
+            isValidField(form, 'title') ||
+            isPristinedField(form, 'title')
+          " class="ml-2">
+            <span class="text-red-500 text-xs font-thin">
+                {{error(form,'title','Title')}}
+            </span></small>
+    </div>
+    <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
+            Expiration Date
+        </label>
+        <input formControlName="expirationDate" [min]="today"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            id="expirationDate" type="date">
+        <small [hidden]="
+            isValidField(form, 'expirationDate') ||
+            isPristinedField(form, 'expirationDate')
+          " class="ml-2">
+            <span class="text-red-500 text-xs font-thin">
+                {{error(form,'expirationDate','Expiration date')}}
+            </span></small>
+    </div>
+    <p class="text-gray-800">Associated people:</p>
+
+    <div class="flex items-center justify-between">
+        <button
+            class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="submit">
+            Sign In
+        </button>
+
+    </div>
+</form>
