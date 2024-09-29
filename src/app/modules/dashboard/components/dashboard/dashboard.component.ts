@@ -20,7 +20,7 @@ export class DashboardComponent implements OnDestroy {
   private fb = inject(FormBuilder);
   formPeople = this.fb.group({
     full_name: ['', Validators.required],
-    age: [1, Validators.required],
+    age: [18, [Validators.required, Validators.min(18)]],
     skill: this.fb.array([], minItemsValidator(1)),
   });
 

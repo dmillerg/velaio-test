@@ -1,7 +1,7 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { TasksService } from '../../services/tasks.service';
 import { TASK } from 'src/app/core/models/task.model';
-import { map } from 'rxjs';
+import { map, } from 'rxjs';
 
 @Component({
   selector: 'app-task-container',
@@ -12,7 +12,8 @@ export class TaskContainerComponent implements OnInit {
 
   private taskService = inject(TasksService);
   tasks: TASK[] = [];
-  filterData?: boolean =undefined;
+  filterData?: boolean = undefined;
+
 
   ngOnInit(): void {
     this.taskService.getTasks().pipe(map(e => {
@@ -30,6 +31,8 @@ export class TaskContainerComponent implements OnInit {
           },]
         }
       })
+      console.log(this.tasks);
+
     })).subscribe()
   }
 
@@ -41,8 +44,12 @@ export class TaskContainerComponent implements OnInit {
     return new Date(randomTime);
   }
 
-  changeFilter(filter?: boolean){
+  changeFilter(filter?: boolean) {
     this.filterData = filter;
-    
+
+  }
+
+  addTask(task: TASK) {
+    this.tasks.push(task);
   }
 }

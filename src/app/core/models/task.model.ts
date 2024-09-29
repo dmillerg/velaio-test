@@ -1,7 +1,7 @@
 import { PEOPLE } from "./people.model";
 
 export interface TASK {
-    id: number;
+    id?: number;
     title: string;
     expirationDate: Date;
     people?: PEOPLE[];

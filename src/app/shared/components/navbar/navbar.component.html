@@ -8,10 +8,10 @@
             <input type="text" class="bg-gray-100/50 rounded-full py-1 pr-3 pl-10 "
                 [placeholder]="'Search '+(title==='All tasks'?'task':'people')">
             <app-users-avatar></app-users-avatar>
-            <button class="mr-4"> <i class="bi bi-sliders2"></i></button>
+            <button *ngIf="title==='All tasks'" class="mr-4"> <i class="bi bi-sliders2"></i></button>
 
         </div>
-        <button (click)="addTask()"
+        <button *ngIf="title==='All tasks'" (click)="addTask()"
             class="rounded-full bg-primary shadow-md hover:bg-primary/80 transition-color duration-300"><i
                 class="bi bi-plus  flex justify-center items-center w-8 h-8 text-white"></i></button>
     </div>

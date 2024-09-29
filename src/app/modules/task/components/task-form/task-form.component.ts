@@ -1,7 +1,9 @@
-import { Component, inject, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { PEOPLE } from 'src/app/core/models/people.model';
+import { TASK } from 'src/app/core/models/task.model';
+import { addTask } from 'src/app/shared/state/actions/create-task.action';
 import { addSidebarView } from 'src/app/shared/state/actions/sidebar-view.action';
 import { FormValidation } from 'src/app/shared/utils/form-validations';
 
@@ -42,7 +44,15 @@ export class TaskFormComponent extends FormValidation implements OnChanges {
   }
 
   onSubmit() {
-    if (this.form.valid) { } else this.form.markAllAsTouched()
+    if (this.form.valid) {
+      const data = this.form.getRawValue();
+      const formData = new FormData();
+      formData.append('title', data.title!)
+      formData.append('expirationDate', data.expirationDate!)
+      formData.append('people', JSON.stringify(data.people!))
+      formData.append('completed', 'false')
+      this.store.dispatch(addTask({task: data as any}))
+    } else this.form.markAllAsTouched()
   }
 
   addPeople() {
