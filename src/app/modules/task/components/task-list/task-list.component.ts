@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { TASK } from 'src/app/core/constant/models/task.model';
+import { TASK } from 'src/app/core/models/task.model';
 import { compareDates } from 'src/app/core/functions/compare-date.functions';
 
 @Component({

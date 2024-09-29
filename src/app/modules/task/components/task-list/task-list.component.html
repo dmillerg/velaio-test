@@ -1,3 +1,4 @@
+<div class="grid grid-cols-1 gap-8">
 <app-card-container name="Today" [amount]="todayTask.length" [open]="true">
     <div class="container">
         <app-task-item-list *ngFor="let item of todayTask" [task]="item" [format]="'today'"></app-task-item-list>
@@ -13,3 +14,4 @@
         <app-task-item-list *ngFor="let item of previousTask" [task]="item" [format]="'other'"></app-task-item-list>
     </div>
 </app-card-container>
+</div>

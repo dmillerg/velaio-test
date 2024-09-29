@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { TASK } from 'src/app/core/constant/models/task.model';
+import { TASK } from 'src/app/core/models/task.model';
 import { addTask } from 'src/app/shared/state/actions/task.action';
 import { selectTask } from 'src/app/shared/state/selectors/task.selector';
 

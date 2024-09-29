@@ -1,32 +1,17 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PEOPLE } from 'src/app/core/constant/models/people.model';
+import { PEOPLE } from 'src/app/core/models/people.model';
+import { UsersAvatarComponent } from '../users-avatar/users-avatar.component';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, UsersAvatarComponent],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
-  people: PEOPLE[] = [
-    {
-      full_name: 'DANIEL MILLER GONZALEZ',
-      age: 28,
-      skill: [{ name: 'Angular' }, { name: 'React' }, { name: 'Nestjs' }, { name: 'Python' }]
-    },
-    {
-      full_name: 'DANIEL MILLER GONZALEZ',
-      age: 28,
-      skill: [{ name: 'Angular' }, { name: 'React' }, { name: 'Nestjs' }, { name: 'Python' }]
-    },
-    {
-      full_name: 'DANIEL MILLER GONZALEZ',
-      age: 28,
-      skill: [{ name: 'Angular' }, { name: 'React' }, { name: 'Nestjs' }, { name: 'Python' }]
-    },
-  ];
+ 
 
   acronym(people: PEOPLE): string {
     const bypart = people.full_name.split(' ');

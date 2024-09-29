@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { TasksService } from '../../services/tasks.service';
-import { TASK } from 'src/app/core/constant/models/task.model';
+import { TASK } from 'src/app/core/models/task.model';
 import { map } from 'rxjs';
 
 @Component({
@@ -16,7 +16,18 @@ export class TaskContainerComponent implements OnInit {
   ngOnInit(): void {
     this.taskService.getTasks().pipe(map(e => {
       this.tasks = e.map(r => {
-        return { ...r, expirationDate: this.getRandomDate() }
+        return {
+          ...r, expirationDate: this.getRandomDate(), people: [{
+            full_name: 'DANIEL MILLER GONZALEZ',
+            age: 28,
+            skill: [{ name: 'Angular' }, { name: 'React' }, { name: 'Nestjs' }, { name: 'Python' }]
+          },
+          {
+            full_name: 'DANIEL MILLER GONZALEZ',
+            age: 28,
+            skill: [{ name: 'Angular' }, { name: 'React' }, { name: 'Nestjs' }, { name: 'Python' }]
+          },]
+        }
       })
     })).subscribe()
   }

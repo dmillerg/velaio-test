@@ -5,6 +5,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.component';
+import { TaskModule } from '../task/task.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.compone
   imports: [
     CommonModule,
     NavbarComponent,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    TaskModule
   ]
 })
 export class DashboardModule { }
