@@ -8,6 +8,8 @@ import { compareDates } from 'src/app/core/functions/compare-date.functions';
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnChanges, OnInit {
+  @Input() filterData?: boolean;
+  filter?: boolean;
   @Input() task: TASK[] = [
     {
       id: 1,
@@ -59,6 +61,7 @@ export class TaskListComponent implements OnChanges, OnInit {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.groupTask();
+    this.filter = this.filterData;
   }
 
   groupTask() {

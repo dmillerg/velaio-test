@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { TASK } from 'src/app/core/models/task.model';
+import { addSidebarView } from 'src/app/shared/state/actions/sidebar-view.action';
 import { addTask } from 'src/app/shared/state/actions/task.action';
 import { selectTask } from 'src/app/shared/state/selectors/task.selector';
 
@@ -20,6 +21,7 @@ export class TaskItemListComponent {
   }
 
   selectTask(task: TASK) {
-    this.store.dispatch(addTask({ task }))
+    this.store.dispatch(addTask({ task }));
+    this.store.dispatch(addSidebarView({ sidebarView: { type: 'preview task' } }));
   }
 }

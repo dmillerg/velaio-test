@@ -1,0 +1,5 @@
+<app-card-container name="People" [amount]="people.length" [open]="true">
+    <div class="container">
+        <app-people-item-list *ngFor="let item of people| filter: filterData" [people]="item"></app-people-item-list>
+    </div>
+</app-card-container>

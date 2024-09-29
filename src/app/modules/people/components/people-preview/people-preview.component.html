@@ -1,0 +1,13 @@
+<div *ngIf="(people$|async)[0]" class="flex flex-col gap-4 px-16 py-6 text-gray-800">
+
+    
+    <h2 class="text-2xl">{{(people$|async)[0]?.full_name}}</h2>
+    <p class="text-primary text-sm">Age: {{(people$|async)[0]?.age}}</p>
+
+    <p class="mt-8"><i class="bi bi-bookmark-fill text-primary"></i> Skill:</p>
+    <ul class="list-inside">
+        <li *ngFor="let item of (people$|async)[0].skill" class="text-sm mt-2 border-b pb-4">
+            <span>{{item.name}}</span>
+        </li>
+    </ul>
+</div>

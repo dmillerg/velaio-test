@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-task-filter',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./task-filter.component.scss']
 })
 export class TaskFilterComponent {
+  filter?: boolean = undefined;
+  @Output() filterData = new EventEmitter<boolean>();
 
+  changeFilter(data?: boolean) {
+    this.filter = data;
+    this.filterData.emit(data);
+  }
 }

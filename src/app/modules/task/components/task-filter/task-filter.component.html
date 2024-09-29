@@ -1,4 +1,9 @@
 <div class="flex justify-between md:pl-6  lg:pl-6">
 
     <h2 class="text-gray-800 font-semibold text-lg">Filtrar por:</h2>
+    <div class="flex gap-2">
+        <button [ngClass]="{'text-primary':filter===undefined}" (click)="changeFilter()">All</button>
+        <button [ngClass]="{'text-primary':filter===true}" (click)="changeFilter(true)">Completed</button>
+        <button [ngClass]="{'text-primary':filter===false}" (click)="changeFilter(false)">Pending</button>
+    </div>
 </div>
