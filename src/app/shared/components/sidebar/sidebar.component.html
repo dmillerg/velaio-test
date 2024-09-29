@@ -14,3 +14,12 @@
     </div>
     <button><i class="bi bi-door-closed-fill"></i></button>
 </div>
+<div class="flex md:hidden lg:hidden overflow-x-auto w-full justify-center gap-4 py-4 px-2">
+    <button class="text-gray-400" *ngFor="let item of menu" [routerLink]="item.url" [ngClass]="{'text-primary':item.url===active}">
+        <div *ngIf="item.name===active" class="h-full h-[2px] bg-primary absolute rounded-e-md bottom-0 left-0">
+        </div>
+        <span class="hover:bg-primary/10 rounded-full w-14 h-14">
+            <i [class]="item.icon" class="drop-shadow-md"></i> {{item.name}}
+        </span>
+    </button>
+</div>

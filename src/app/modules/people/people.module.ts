@@ -7,7 +7,10 @@ import { PeopleListComponent } from './components/people-list/people-list.compon
 import { PeopleItemListComponent } from './components/people-item-list/people-item-list.component';
 import { PeopleFilterComponent } from './components/people-filter/people-filter.component';
 import { PeopleFormComponent } from './components/people-form/people-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CardContainerComponent } from 'src/app/shared/components/card-container/card-container.component';
+import { PeoplePreviewComponent } from './components/people-preview/people-preview.component';
+import { filter } from 'src/app/core/pipe/filter.pipe';
 
 
 @NgModule({
@@ -16,13 +19,18 @@ import { ReactiveFormsModule } from '@angular/forms';
     PeopleListComponent,
     PeopleItemListComponent,
     PeopleFilterComponent,
-    PeopleFormComponent
+    PeopleFormComponent,
+    PeoplePreviewComponent
   ],
   imports: [
     CommonModule,
     PeopleRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CardContainerComponent,
+    filter,
+    FormsModule,
   ],
-  exports: [PeopleFormComponent]
+  exports: [PeopleFormComponent, PeoplePreviewComponent],
+  providers: [filter]
 })
 export class PeopleModule { }

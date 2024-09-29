@@ -1,1 +1,2 @@
-<p>people-container works!</p>
+<app-people-filter (filterData)="changeFiter($event)" />
+<app-people-list [people]="people" [filterData]="filterData" />

@@ -12,6 +12,7 @@ export class TaskContainerComponent implements OnInit {
 
   private taskService = inject(TasksService);
   tasks: TASK[] = [];
+  filterData?: boolean =undefined;
 
   ngOnInit(): void {
     this.taskService.getTasks().pipe(map(e => {
@@ -40,4 +41,8 @@ export class TaskContainerComponent implements OnInit {
     return new Date(randomTime);
   }
 
+  changeFilter(filter?: boolean){
+    this.filterData = filter;
+    
+  }
 }

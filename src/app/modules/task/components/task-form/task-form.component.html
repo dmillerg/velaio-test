@@ -1,5 +1,5 @@
 <form class="px-8 pt-6 pb-8" [formGroup]="form" (ngSubmit)="onSubmit()">
-    <h1 class="text-gray-800 font-bold">New task</h1>
+    <h1 class="text-gray-800 font-bold"><i class="bi bi-ui-checks text-primary"></i> New task</h1>
     <p class="text-sm poppin-light mb-6">Please fill out all fields and review them before submitting the information.
     </p>
     <div class="mb-4">
@@ -32,13 +32,32 @@
                 {{error(form,'expirationDate','Expiration date')}}
             </span></small>
     </div>
-    <p class="text-gray-800">Associated people:</p>
+    <p class="mt-8 text-gray-800"><i class="bi bi-people-fill text-primary"></i> Assigned people:</p>
+    <ul class="list-inside">
+        <li *ngFor="let item of people" class="text-sm mt-2 border-b pb-4">
+            <span class="text-gray-700">{{item.full_name}}</span>
+            <div class="flex gap-2 items-center text-gray-400 poppin-light">
+                <span class="text-sm" *ngFor="let skill of item.skill;let l = last;let f= first">{{f?'Skills:
+                    ':''}}{{skill.name}}{{l?'':','}}</span>
+            </div>
+        </li>
+    </ul>
+    <button class="text-primary py-2 rounded focus:outline-none focus:shadow-outline" type="button"
+        (click)="addPeople()">
+        <i class="bi bi-plus-lg"></i>
+        Add people
+    </button>
 
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between mt-6 gap-3">
         <button
-            class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            class="w-full bg-gray-500 hover:bg-gray-500/90 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button">
+            Cancel
+        </button>
+        <button
+            class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="submit">
-            Sign In
+            Save
         </button>
 
     </div>

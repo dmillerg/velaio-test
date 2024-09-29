@@ -1,5 +1,8 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { PEOPLE } from 'src/app/core/models/people.model';
+import { addSidebarView } from 'src/app/shared/state/actions/sidebar-view.action';
 import { FormValidation } from 'src/app/shared/utils/form-validations';
 
 @Component({
@@ -10,14 +13,15 @@ import { FormValidation } from 'src/app/shared/utils/form-validations';
 export class PeopleFormComponent extends FormValidation implements OnInit {
 
   @Input({ required: true }) form!: FormGroup;
-  @Output() formDataOuput = new EventEmitter<FormData>();
+  @Output() formDataOuput = new EventEmitter<PEOPLE>();
   private fb = inject(FormBuilder);
 
-  constructor() {
+  constructor(private store: Store) {
     super();
   }
 
   ngOnInit(): void {
+    this.skill.controls =[];
     this.addSkill();
   }
 
@@ -46,11 +50,9 @@ export class PeopleFormComponent extends FormValidation implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       const data = this.form.getRawValue();
-      const formData = new FormData();
-      formData.append('fullname', data.fullname);
-      formData.append('age', data.age);
-      formData.append('skill', JSON.stringify(data.skill));
-      this.formDataOuput.emit(formData)
+      this.formDataOuput.emit(data);
+      this.store.dispatch(addSidebarView({ sidebarView: { type: 'new task' } }));
+      this.form.reset();
     } else this.form.markAllAsTouched()
   }
 }

@@ -1,2 +1,2 @@
-<app-task-filter />
-<app-task-list [task]="tasks"/>
+<app-task-filter (filterData)="changeFilter($event)"/>
+<app-task-list [task]="tasks" [filterData]="filterData"/>

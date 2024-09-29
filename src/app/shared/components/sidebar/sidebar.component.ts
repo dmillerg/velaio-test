@@ -1,15 +1,18 @@
-import { Component, inject } from '@angular/core';
-import { MENU } from '../../models/menu.model';
+import { Component, inject, OnDestroy } from '@angular/core';
+import { MENU } from '../../../modules/dashboard/models/menu.model';
 import { ROUTES } from 'src/app/core/constant/routes';
 import { Subscription } from 'rxjs';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  styleUrls: ['./sidebar.component.scss'],
+  imports: [CommonModule, RouterLink],
+  standalone: true
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnDestroy{
   menu: MENU[] = [
     {
       name: 'tareas',
@@ -30,6 +33,10 @@ export class SidebarComponent {
 
   constructor() {
     this.changeRoute();
+  }
+
+  ngOnDestroy(): void {
+    this.routerSub$.unsubscribe()
   }
 
   changeRoute() {

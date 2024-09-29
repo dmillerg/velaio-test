@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-people-filter',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./people-filter.component.scss']
 })
 export class PeopleFilterComponent {
+  filter: string = '';
+  @Output() filterData = new EventEmitter<string>();
 
+  changeFilter() {
+    this.filterData.emit(this.filter);
+  }
 }

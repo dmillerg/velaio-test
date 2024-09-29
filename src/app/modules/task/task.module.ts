@@ -11,6 +11,7 @@ import { TasksService } from './services/tasks.service';
 import { TaskPreviewComponent } from './components/task-preview/task-preview.component';
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { filterCompleted } from 'src/app/core/pipe/filter-completed.pipe';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     TaskRoutingModule,
     CardContainerComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    filterCompleted
   ],
   exports: [TaskPreviewComponent, TaskFormComponent],
   providers: [TasksService]
