@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
+import { ROUTES } from 'src/app/core/constant/routes';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent }
+  {
+    path: '', component: DashboardComponent, children: [
+      { path: ROUTES.TASK, loadChildren: () => import('./../task/task.module').then((m) => m.TaskModule) }
+    ]
+  }
 ];
 
 @NgModule({

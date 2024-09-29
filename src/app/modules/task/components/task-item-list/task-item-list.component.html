@@ -1,0 +1,13 @@
+<div (click)="selectTask(task!)" [ngClass]="{'bg-primary/20': (task$|async)[0]?.id===task.id}"
+    class="flex items-center justify-between  rounded-md p-3 hover:bg-primary/10 transition-color duration-300 cursor-pointer">
+    <div class="flex items-center gap-4">
+        <i class="bi-check-circle text-xl" [ngClass]="{'text-green-400': task.completed}"></i>
+        <h3 class="text-gray-800">{{task.title}}</h3>
+    </div>
+    <div class="flex items-center gap-4">
+        <i class="bi bi-calendar-week"></i>
+        <p class="poppin-light text-sm">{{format==='today'?'Today':''}}{{task.expirationDate| date: (format==='today'?'
+            h a': 'MMM dd')| lowercase}}
+        </p>
+    </div>
+</div>

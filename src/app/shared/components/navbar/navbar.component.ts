@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PEOPLE } from 'src/app/modules/dashboard/models/people.model';
+import { PEOPLE } from 'src/app/core/constant/models/people.model';
 
 @Component({
   selector: 'app-navbar',

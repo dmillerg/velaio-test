@@ -11,18 +11,13 @@ export class SidebarComponent {
     {
       name: 'tareas',
       url: 'tasks',
-      icon: 'bi bi-journal-text'
+      icon: 'bi bi-ui-checks'
     },
     {
       name: 'personas',
       url: 'people',
-      icon: 'bi bi-person-fill'
+      icon: 'bi bi-people-fill'
     },
-    // {
-    //   name: 'tareas',
-    //   url: 'tasks',
-    //   icon: 'bi bi-journal-text'
-    // },
   ]
 
   active: string='tareas'
